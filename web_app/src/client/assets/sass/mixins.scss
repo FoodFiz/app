@@ -1,0 +1,476 @@
+@import 'functions';
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Positioning
+ */
+
+@mixin position($position: relative, $coordinates: null) {
+    @if type-of($position)==list {
+        $coordinates: $position;
+        $position: relative;
+    }
+    $coordinates: _unpack($coordinates);
+    $offsets: ( top: nth($coordinates, 1), right: nth($coordinates, 2), bottom: nth($coordinates, 3), left: nth($coordinates, 4));
+    position: $position;
+    @each $offset,
+    $value in $offsets {
+        @if _is-length($value) {
+            #{$offset}: $value;
+        }
+    }
+}
+
+//$coordinates order :: top,right,bottom,left
+@mixin absolute($coordinates) {
+    @include position(absolute, $coordinates);
+}
+
+@mixin fixed($coordinates) {
+    @include position(fixed, $coordinates);
+}
+
+@mixin relative($coordinates) {
+    @include position(relative, $coordinates);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Sizing
+ */
+
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Margin & Padding
+ */
+
+@mixin push($spacing: $space) {
+    margin: $spacing;
+}
+
+@mixin push--top($spacing: $space) {
+    margin-top: $spacing;
+}
+
+@mixin push--right($spacing: $space) {
+    margin-right: $spacing;
+}
+
+@mixin push--bottom($spacing: $space) {
+    margin-bottom: $spacing;
+}
+
+@mixin push--left($spacing: $space) {
+    margin-left: $spacing;
+}
+
+@mixin push--ends($spacing: $space) {
+    margin: {
+        top: $spacing;
+        bottom: $spacing;
+    }
+}
+
+@mixin push--sides($spacing: $space) {
+    margin: {
+        right: $spacing;
+        left: $spacing;
+    }
+}
+
+@mixin push--auto {
+    margin: {
+        right: auto;
+        left: auto;
+    }
+}
+
+@mixin offset--sides($spacing: $space) {
+    margin: {
+        right: -$spacing;
+        left: -$spacing;
+    }
+}
+
+%flush {
+    margin: 0;
+}
+
+%flush--top {
+    margin-top: 0;
+}
+
+%flush--right {
+    margin-right: 0;
+}
+
+%flush--bottom {
+    margin-bottom: 0;
+}
+
+%flush--left {
+    margin-left: 0;
+}
+
+%flush--ends {
+    margin: {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+%flush--sides {
+    margin: {
+        right: 0;
+        left: 0;
+    }
+}
+
+@mixin soft($spacing: $space) {
+    padding: $spacing;
+}
+
+@mixin soft--top($spacing: $space) {
+    padding-top: $spacing;
+}
+
+@mixin soft--right($spacing: $space) {
+    padding-right: $spacing;
+}
+
+@mixin soft--bottom($spacing: $space) {
+    padding-bottom: $spacing;
+}
+
+@mixin soft--left($spacing: $space) {
+    padding-left: $spacing;
+}
+
+@mixin soft--ends($spacing: $space) {
+    padding: {
+        top: $spacing;
+        bottom: $spacing;
+    }
+}
+
+@mixin soft--sides($spacing: $space) {
+    padding: {
+        right: $spacing;
+        left: $spacing;
+    }
+}
+
+%hard {
+    padding: 0;
+}
+
+%hard--top {
+    padding-top: 0;
+}
+
+%hard--right {
+    padding-right: 0;
+}
+
+%hard--bottom {
+    padding-bottom: 0;
+}
+
+%hard--left {
+    padding-left: 0;
+}
+
+%hard--ends {
+    padding: {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+%hard--sides {
+    padding: {
+        right: 0;
+        left: 0;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Typography
+ */
+
+%antialiased {
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font($font, $color: false, $tt: false, $td: false, $ls: false) {
+    @extend %antialiased;
+    font: $font;
+    @if $color {
+        color: $color;
+    }
+    @if $tt {
+        text-transform: $tt;
+    }
+    @if $td {
+        text-decoration: $td;
+    }
+    @if $ls {
+        letter-spacing: $ls;
+    }
+}
+
+%truncated {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin truncate($truncation-boundary: false) {
+    @if $truncation-boundary {
+        max-width: $truncation-boundary;
+    }
+    @extend %truncated;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//The ultimate PX/REM mixin
+@include rem(font-size, 1.6rem);
+@include rem(padding, 20px 10px);
+
+outputs:
+font-size: 16px;  // Fallback for IE8 
+font-size: 1.6rem;
+padding: 20px 10px; // Fallback for IE8 
+padding: 2rem 1rem;
+*/
+
+@mixin rem($property, $values) {
+    $px: ();
+    /* 3 */
+    $rem: ();
+    /* 3 */
+    @each $value in $values {
+        /* 4 */
+        @if $value==0 or $value==auto {
+            /* 5 */
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        }
+        @else {
+            $unit: unit($value);
+            /* 6 */
+            $val: parseInt($value);
+            /* 6 */
+            @if $unit=="px" {
+                /* 7 */
+                $px: append($px, $value);
+                $rem: append($rem, ($val / 10 + rem));
+            }
+            @if $unit=="rem" {
+                /* 7 */
+                $px: append($px, ($val * 10 + px));
+                $rem: append($rem, $value);
+            }
+        }
+    }
+    @if $px==$rem {
+        /* 8 */
+        #{$property}: $px;
+        /* 9 */
+    }
+    @else {
+        #{$property}: $px;
+        /* 9 */
+        #{$property}: $rem;
+        /* 9 */
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Others
+*/
+
+@mixin unselectable {
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+@mixin backface-visibility($visibility) {
+    backface-visibility: $visibility;
+    -webkit-backface-visibility: $visibility;
+    -moz-backface-visibility: $visibility;
+    -ms-backface-visibility: $visibility;
+}
+
+@mixin hardware($backface: true, $perspective: 1000) {
+    @if $backface {
+        @include backface-visibility(hidden);
+    }
+    perspective: $perspective;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Form input placeholder text
+	example:
+	input,
+	textarea {
+		@include input-placeholder {
+			color: $grey;
+		}
+	}
+*/
+
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// cf:: Clearfix
+*/
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Border Radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  //transition
+  @include transition(transition, color 1s, background-color 1s, border-color 1s);  
+  ::: transition shorthand property can animate multiple CSS properties and gives 
+  o/p::  as -> -moz-transition: color 1s, background-color 1s, border-color 1s;
+  @include transition(transition-delay, 0.5s);
+*/
+
+@mixin transition($prop, $values...) {
+    -moz-#{$prop}: $values;
+    -ms-#{$prop}: $values;
+    -o-#{$prop}: $values;
+    -webkit-#{$prop}: $values;
+    $prop: $values;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  transform
+  Example : @include skew(25,10);
+            @include transform-origin(top left);
+*/
+
+//generic transform
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+// translate
+@mixin translate2d ($tx, $ty) {
+    @include transform(translate($tx, $ty));
+}
+
+// translate3d
+//translateZ(0) is equal translate3d(0, 0, tz)
+@mixin translate3d ($tx, $ty, $tz) {
+    @include transform(translate($tx, $ty, $tz));
+}
+
+// skew
+@mixin skew ($x, $y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    -webkit-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Page--shared
+*/
+
+@mixin page--shared() {
+     :host {
+        @include push(rem(2.4));
+        position: relative !important;
+        display: block;
+    }
+    mat-card {
+        max-width: 90%;
+    }
+    .container {
+        position: relative !important;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  box-shadow
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+*/
+
+@mixin box-shadow($shadows...) {
+    -moz-box-shadow: $shadows;
+    -webkit-box-shadow: $shadows;
+    box-shadow: $shadows;
+}

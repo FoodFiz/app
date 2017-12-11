@@ -1,0 +1,679 @@
+
+.leaflet-pan-anim .leaflet-tile {
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: none;
+}
+
+.leaflet-retina .leaflet-control-layers-toggle {
+    background-image: $url_2;
+    background-size: 26px 26px;
+}
+
+.leaflet-image-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    &.leaflet-interactive {
+        pointer-events: visiblePainted;
+        pointer-events: auto;
+    }
+}
+
+.leaflet-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.leaflet-marker-icon {
+    position: absolute;
+    left: 0;
+    top: 0; //Instead of the line below you could use @include user-select($select)
+    user-select: none;
+    display: block;
+    pointer-events: none;
+    &.leaflet-interactive {
+        pointer-events: visiblePainted;
+        pointer-events: auto;
+    }
+}
+
+.leaflet-marker-shadow {
+    position: absolute;
+    left: 0;
+    top: 0; //Instead of the line below you could use @include user-select($select)
+    user-select: none;
+    display: block;
+    pointer-events: none;
+}
+
+.leaflet-pane {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 400;
+    >canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    >svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        path {
+            pointer-events: none;
+            &.leaflet-interactive {
+                pointer-events: visiblePainted;
+                pointer-events: auto;
+            }
+        }
+    }
+}
+
+.leaflet-tile {
+    position: absolute;
+    left: 0;
+    top: 0; //Instead of the line below you could use @include user-select($select)
+    user-select: none;
+    filter: inherit;
+    visibility: hidden;
+}
+
+.leaflet-tile-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.leaflet-zoom-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0; //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+    z-index: 800;
+    border: 2px dotted $color_dodger_blue_approx;
+    background: $white_50;
+}
+
+.leaflet-container {
+    background: $color_alto_approx;
+    outline: 0;
+    font: 12px/1.5 Helvetica Neue, Arial, Helvetica, sans-serif;
+    &.leaflet-touch-zoom {
+        touch-action: pan-x pan-y;
+    }
+    a {
+        color: $color_deep_cerulean_approx;
+        &.leaflet-active {
+            outline: 2px solid $web_orange;
+        }
+        &.leaflet-popup-close-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 4px 4px 0 0;
+            border: none;
+            text-align: center;
+            width: 18px;
+            height: 14px;
+            font: 16px/14px $font_13, $font_14, $font_4;
+            color: $color_pale_slate_approx;
+            text-decoration: none;
+            font-weight: 700;
+            background: transparent;
+            &:hover {
+                color: $color_mountain_mist_approx;
+            }
+        }
+    }
+    .leaflet-control-attribution {
+        background: $white;
+        background: $white_70;
+        margin: 0;
+        font-size: 11px;
+    }
+    .leaflet-control-scale {
+        font-size: 11px;
+    }
+    .leaflet-marker-pane img {
+        max-width: none!important;
+    }
+    .leaflet-overlay-pane svg {
+        max-width: none!important;
+    }
+    .leaflet-shadow-pane img {
+        max-width: none!important;
+    }
+    .leaflet-tile-pane img {
+        max-width: none!important;
+    }
+    img.leaflet-image-layer {
+        max-width: none!important;
+    }
+    &.leaflet-touch-drag.leaflet-touch-zoom {
+        touch-action: none;
+    }
+}
+
+.leaflet-safari {
+    .leaflet-tile {}
+    .leaflet-tile-container {
+        width: 1600px;
+        height: 1600px;
+    }
+}
+
+.leaflet-tile-loaded {
+    visibility: inherit;
+}
+
+.leaflet-overlay-pane {
+    z-index: 400;
+    svg {}
+}
+
+.leaflet-tile-pane {
+    z-index: 200;
+}
+
+.leaflet-shadow-pane {
+    z-index: 500;
+}
+
+.leaflet-marker-pane {
+    z-index: 600;
+}
+
+.leaflet-tooltip-pane {
+    z-index: 650;
+}
+
+.leaflet-popup-pane {
+    z-index: 700;
+    cursor: auto;
+}
+
+.leaflet-map-pane {
+    canvas {
+        z-index: 100;
+    }
+    svg {
+        z-index: 200;
+    }
+}
+
+.leaflet-vml-shape {
+    width: 1px;
+    height: 1px;
+}
+
+.lvml {
+    behavior: $url_0;
+    display: inline-block;
+    position: absolute;
+}
+
+.leaflet-control {
+    position: relative;
+    z-index: 800;
+    pointer-events: visiblePainted;
+    pointer-events: auto;
+    float: left;
+    clear: both;
+    cursor: auto;
+}
+
+.leaflet-bottom {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    bottom: 0;
+    .leaflet-control {
+        margin-bottom: 10px;
+    }
+    .leaflet-control-scale {
+        margin-bottom: 5px;
+    }
+}
+
+.leaflet-top {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    top: 0;
+    .leaflet-control {
+        margin-top: 10px;
+    }
+}
+
+.leaflet-right {
+    right: 0;
+    .leaflet-control {
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+.leaflet-left {
+    left: 0;
+    .leaflet-control {
+        margin-left: 10px;
+    }
+    .leaflet-control-scale {
+        margin-left: 5px;
+    }
+}
+
+.leaflet-fade-anim {
+    .leaflet-tile {
+        will-change: opacity;
+    }
+    .leaflet-popup {
+        opacity: 0; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: opacity .2s linear;
+    }
+    .leaflet-map-pane .leaflet-popup {
+        opacity: 1;
+    }
+}
+
+.leaflet-zoom-animated {
+    //Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+    transform-origin: 0 0;
+}
+
+.leaflet-zoom-anim {
+    .leaflet-zoom-animated {
+        will-change: transform; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: transform .25s cubic-bezier(0, 0, .25, 1);
+    }
+    .leaflet-tile {
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: none;
+    }
+    .leaflet-zoom-hide {
+        visibility: hidden;
+    }
+}
+
+.leaflet-interactive {
+    cursor: pointer;
+}
+
+.leaflet-grab {}
+
+.leaflet-crosshair {
+    cursor: crosshair;
+    .leaflet-interactive {
+        cursor: crosshair;
+    }
+}
+
+.leaflet-dragging {
+    .leaflet-grab {
+        cursor: move;
+        .leaflet-interactive {
+            cursor: move;
+        }
+    }
+    .leaflet-marker-draggable {
+        cursor: move;
+    }
+}
+
+.leaflet-bar {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 1px 5px $black_65; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 4px;
+    a {
+        background-color: $white;
+        border-bottom: 1px solid $color_celeste_approx;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: $black;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        display: block;
+        &:hover {
+            background-color: $white;
+            border-bottom: 1px solid $color_celeste_approx;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: $black;
+            background-color: $wild_sand;
+        }
+        &:first-child {
+            //Instead of the line below you could use @include border-top-left-radius($radius)
+            border-top-left-radius: 4px; //Instead of the line below you could use @include border-top-right-radius($radius)
+            border-top-right-radius: 4px;
+        }
+        &:last-child {
+            //Instead of the line below you could use @include border-bottom-left-radius($radius)
+            border-bottom-left-radius: 4px; //Instead of the line below you could use @include border-bottom-right-radius($radius)
+            border-bottom-right-radius: 4px;
+            border-bottom: none;
+        }
+        &.leaflet-disabled {
+            cursor: default;
+            background-color: $wild_sand;
+            color: $color_pink_swan_approx;
+        }
+    }
+}
+
+.leaflet-control-layers-toggle {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: block;
+    background-image: $url_1;
+    width: 36px;
+    height: 36px;
+}
+
+.leaflet-touch {
+    .leaflet-bar {
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: none;
+        border: 2px solid $black_20; //Instead of the line below you could use @include background-clip($clip)
+        background-clip: padding-box;
+        a {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            &:first-child {
+                //Instead of the line below you could use @include border-top-left-radius($radius)
+                border-top-left-radius: 2px; //Instead of the line below you could use @include border-top-right-radius($radius)
+                border-top-right-radius: 2px;
+            }
+            &:last-child {
+                //Instead of the line below you could use @include border-bottom-left-radius($radius)
+                border-bottom-left-radius: 2px; //Instead of the line below you could use @include border-bottom-right-radius($radius)
+                border-bottom-right-radius: 2px;
+            }
+        }
+    }
+    .leaflet-control-zoom-in {
+        font-size: 22px;
+    }
+    .leaflet-control-zoom-out {
+        font-size: 22px;
+    }
+    .leaflet-control-layers-toggle {
+        width: 44px;
+        height: 44px;
+    }
+    .leaflet-control-attribution {
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: none;
+    }
+    .leaflet-control-layers {
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: none;
+        border: 2px solid $black_20; //Instead of the line below you could use @include background-clip($clip)
+        background-clip: padding-box;
+    }
+}
+
+.leaflet-control-zoom-in {
+    font: 700 18px $font_12, $font_8, $font_10;
+    text-indent: 1px;
+}
+
+.leaflet-control-zoom-out {
+    font: 700 18px $font_12, $font_8, $font_10;
+    text-indent: 1px;
+}
+
+.leaflet-control-layers {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 1px 5px $black_40;
+    background: $white; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 5px;
+    .leaflet-control-layers-list {
+        display: none;
+    }
+    label {
+        display: block;
+    }
+}
+
+.leaflet-control-layers-expanded {
+    padding: 6px 10px 6px 6px;
+    color: $color_mine_shaft_approx;
+    background: $white;
+    .leaflet-control-layers-toggle {
+        display: none;
+    }
+    .leaflet-control-layers-list {
+        display: block;
+        position: relative;
+    }
+}
+
+.leaflet-control-layers-scrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+
+.leaflet-control-layers-selector {
+    margin-top: 2px;
+    position: relative;
+    top: 1px;
+}
+
+.leaflet-control-layers-separator {
+    height: 0;
+    border-top: 1px solid $color_alto_approx;
+    margin: 5px -10px 5px -6px;
+}
+
+.leaflet-default-icon-path {
+    background-image: $url_3;
+}
+
+.leaflet-control-attribution {
+    padding: 0 5px;
+    color: $color_mine_shaft_approx;
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.leaflet-control-scale-line {
+    padding: 0 5px;
+    color: $color_mine_shaft_approx;
+    border: 2px solid $color_tapa_approx;
+    border-top: none;
+    line-height: 1.1;
+    padding: 2px 5px 1px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden; //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+    background: $white;
+    background: $white_50;
+    &:not(:first-child) {
+        border-top: 2px solid $color_tapa_approx;
+        border-bottom: none;
+        margin-top: -2px;
+        &:not(:last-child) {
+            border-bottom: 2px solid $color_tapa_approx;
+        }
+    }
+}
+
+.leaflet-popup {
+    position: absolute;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 12px;
+    background: $white;
+    color: $color_mine_shaft_approx; //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 3px 14px $black_40;
+}
+
+.leaflet-popup-content {
+    margin: 13px 19px;
+    line-height: 1.4;
+    p {
+        margin: 18px 0;
+    }
+}
+
+.leaflet-popup-tip-container {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.leaflet-popup-tip {
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+    margin: -10px auto 0; //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(45deg);
+    background: $white;
+    color: $color_mine_shaft_approx; //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 3px 14px $black_40;
+}
+
+.leaflet-popup-scrolled {
+    overflow: auto;
+    border-bottom: 1px solid $color_alto_approx;
+    border-top: 1px solid $color_alto_approx;
+}
+
+.leaflet-oldie {
+    .leaflet-popup-content-wrapper {
+        zoom: 1;
+        border: 1px solid $color_mountain_mist_approx;
+    }
+    .leaflet-popup-tip {
+        width: 24px;
+        margin: 0 auto;
+        filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+        border: 1px solid $color_mountain_mist_approx;
+    }
+    .leaflet-popup-tip-container {
+        margin-top: -1px;
+    }
+    .leaflet-control-layers {
+        border: 1px solid $color_mountain_mist_approx;
+    }
+    .leaflet-control-zoom {
+        border: 1px solid $color_mountain_mist_approx;
+    }
+}
+
+.leaflet-div-icon {
+    background: $white;
+    border: 1px solid $color_storm_dust_approx;
+}
+
+.leaflet-tooltip {
+    position: absolute;
+    padding: 6px;
+    background-color: $white;
+    border: 1px solid $white; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 3px;
+    color: $color_log_cabin_approx;
+    white-space: nowrap; //Instead of the line below you could use @include user-select($select)
+    user-select: none;
+    pointer-events: none; //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 1px 3px $black_40;
+    &.leaflet-clickable {
+        cursor: pointer;
+        pointer-events: auto;
+    }
+}
+
+.leaflet-tooltip-bottom {
+    margin-top: 6px;
+    &:before {
+        position: absolute;
+        pointer-events: none;
+        border: 6px solid transparent;
+        background: transparent;
+        content: "";
+        left: 50%;
+        margin-left: -6px;
+        top: 0;
+        margin-top: -12px;
+        margin-left: -6px;
+        border-bottom-color: $white;
+    }
+}
+
+.leaflet-tooltip-left {
+    margin-left: -6px;
+    &:before {
+        position: absolute;
+        pointer-events: none;
+        border: 6px solid transparent;
+        background: transparent;
+        content: "";
+        top: 50%;
+        margin-top: -6px;
+        right: 0;
+        margin-right: -12px;
+        border-left-color: $white;
+    }
+}
+
+.leaflet-tooltip-right {
+    margin-left: 6px;
+    &:before {
+        position: absolute;
+        pointer-events: none;
+        border: 6px solid transparent;
+        background: transparent;
+        content: "";
+        top: 50%;
+        margin-top: -6px;
+        left: 0;
+        margin-left: -12px;
+        border-right-color: $white;
+    }
+}
+
+.leaflet-tooltip-top {
+    margin-top: -6px;
+    &:before {
+        position: absolute;
+        pointer-events: none;
+        border: 6px solid transparent;
+        background: transparent;
+        content: "";
+        left: 50%;
+        margin-left: -6px;
+        bottom: 0;
+        margin-bottom: -12px;
+        border-top-color: $white;
+    }
+}

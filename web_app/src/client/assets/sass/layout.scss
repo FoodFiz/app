@@ -1,0 +1,337 @@
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+@import 'splash-screen';
+@import 'css-utility';
+
+app-root {
+    @include absolute(0);
+}
+
+html {
+    @include rem(font-size, map-get($font-sizes, base));
+    @include size(100%);
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    @include size(100%);
+    position: relative;
+    min-height: 100%;  
+    font-weight: $font--normal;
+    font-family: $font--preferred;
+    font: 400 14px/20px $font--preferred;
+    color: transparentize($black, 0.13);
+    line-height: 1.5;
+    &.pace-done {
+        background: $pace_done_BCK;
+    }
+}
+
+mat-toolbar {
+    .toolbar-avatar {
+        @include size(40px);
+        line-height: 24px;
+        img {
+            width: 40px;
+            @include border-radius(50%);
+        }
+    }
+    .notification-label {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 13px;
+        @include border-radius(50%);
+        @include size(13px);
+        background-color: $notification_color_warn;
+        border: 4px solid $notification_color_warn;
+        color: $white;
+        text-align: center;
+    }
+}
+
+.app-inner {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: row;
+}
+
+@media(max-width:600px) {
+    .app-inner {
+        height: calc(100vh - 56px);
+    }
+}
+
+@media(min-width:48em) {
+    .app.boxed {
+        max-width: 46.88rem;
+    }
+}
+
+@media(min-width:62rem) {
+    .app.boxed {
+        max-width: 60.63rem;
+    }
+}
+
+@media(min-width:75rem) {
+    .app.boxed {
+        max-width: 73.13rem;
+    }
+}
+
+.mat-drawer-content {
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .33333333rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+    >.main-content {
+        box-sizing: border-box;
+        flex-direction: column;
+        display: flex;
+        flex: 1;
+        >.content-view {
+            position: relative;
+            box-sizing: border-box;
+            padding: 1rem;
+            flex: 1 0 auto;
+        }
+    }
+}
+
+.chat-panel {
+    max-width: 320px;
+    width: 100%;
+    overflow: hidden;
+    .mat-tab-body-content {
+        height: 100%;
+    }
+    .mat-tab-body-wrapper {
+        height: 100%;
+    }
+    mat-tab-body {
+        height: 100%;
+    }
+    mat-tab-group {
+        height: 100%;
+    }
+    .scroll {
+        @include size(100%);
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+    }
+}
+
+.session {
+    position: relative;
+    z-index: 4000;
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+}
+
+.session-content {
+    display: flex;
+    padding: 40px 1rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.session-wrapper {
+    flex: none;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lockscreen-avatar {
+    position: relative;
+    display: block;
+    margin: -75px auto 0!important;
+}
+
+.lockscreen-wrapper {
+    flex: none;
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.error-title {
+    line-height: 1.2;
+    font-weight: 900;
+    display: inline-table;
+    position: relative;
+    background: $error_title_BCK;
+    color: $white;
+    padding: 0 1rem;
+    @include border-radius(8px);
+    cursor: pointer;
+    margin: 0 0 1rem;
+    &:after {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: "";
+        @include size(0);    
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $error_title_BCK;
+        border-width: 8px;
+        margin-left: -8px;
+    }
+}
+
+.error-subtitle {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.media-grid {
+    text-align: center;
+    overflow: hidden;
+    figure {
+        cursor: pointer;
+        background: $black_38;
+        text-align: left;
+        text-align: center;
+        position: relative;
+        @include border-radius(2px 2px 0 0);
+        img {
+            position: relative;
+            @include border-radius(2px 2px 0 0);
+            display: block;
+            max-width: 100%;
+            @include opacity(.85);
+            @include transition(transition, opacity .3s, transform .3s);
+        }
+        figcaption {
+            color: $white;
+            text-transform: uppercase;
+            @include backface-visibility(hidden);
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include size(10%);
+            &:before {
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                @include size(100%);
+                border-style: solid;
+                border-color: $black_38;
+                content: "";
+                @include transition(transition, 0.3s);                
+                border-width: 0 45px 0 0; //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: translate3d(45px, 0, 0);
+            }
+            >a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                @include size(100%);
+                z-index: 1000;
+                text-indent: 200%;
+                white-space: nowrap;
+                font-size: 0;
+                @include opacity(0);
+            }
+        }
+        p {
+            margin: 0;
+            float: right;
+            clear: both;
+            text-align: center;
+            text-transform: none;
+            font-size: 1rem;
+            width: 45px;
+            padding-top: 1rem;
+            a {
+                @include transition(transition, opacity .3s, transform .3s);
+                display: block;
+                margin-bottom: 1rem;
+                color: $white;
+                @include opacity(0); //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: translate3d(90px, 0, 0);
+            }
+        }
+        &:hover {
+            figcaption:before {
+                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: translate3d(0, 0, 0);
+            }
+            p a {
+                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: translate3d(0, 0, 0);
+                @include opacity(1);
+                &:first-child {
+                    @include transition(transition-delay, 25s);
+                }
+                &:nth-child(2) {
+                    @include transition(transition-delay, 0.5s);
+                }
+                &:nth-child(3) {
+                    @include transition(transition-delay, 75s);
+                }
+                &:nth-child(4) {
+                    @include transition(transition-delay, 0.5s);
+                }
+            }
+        }
+    }
+    &.compact {
+        @include border-radius(2px 0 0 2px);
+        figure {
+            @include border-radius(2px 0 0 2px);
+            img {
+                @include border-radius(2px 0 0 2px);
+            }
+        }
+    }
+    .product-badge {
+        color: $white;
+        text-align: center;
+        position: absolute;
+        border-top: 30px solid $notification_color_warn;
+        border-bottom: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-left: 30px solid $notification_color_warn;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        span {
+            position: absolute; //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+            transform: rotate(-45deg);
+            top: -18px;
+            left: -25px;
+            white-space: nowrap;
+        }
+    }
+}
+
+[tabindex="-1"]:focus {
+    outline: none;
+}
+
+.app.boxed {
+    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+}

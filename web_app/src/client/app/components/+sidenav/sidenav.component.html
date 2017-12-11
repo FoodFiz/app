@@ -1,0 +1,655 @@
+﻿<!-- <button mat-button [routerLink]="['/', '']">
+  {{ 'PUBLIC.MENU.HOME' | translate }}
+</button>
+<button mat-button [routerLink]="['/', 'about']">
+  {{ 'PUBLIC.MENU.ABOUT' | translate }}
+</button>
+<button mat-button [routerLink]="['/', 'about', 'us', 22]">
+  {{ 'PUBLIC.MENU.ABOUT_US' | translate }}
+</button>
+<button mat-button [routerLink]="['/', 'about', 'banana']">
+  {{ 'PUBLIC.MENU.ABOUT_BANANA' | translate }}
+</button>
+<button mat-button [routerLink]="['/', 'about', 'apple', 6, 'pear']">
+  {{ 'PUBLIC.MENU.ABOUT_APPLE_PEAR' | translate }}
+</button> -->
+
+<mat-nav-list appaccordion="" class="navigation mat-nav-list" role="list">
+  <mat-list-item appaccordionlink="" class="mat-list-item open" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">explore</mat-icon>
+        <span>Home</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+      </a>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <mat-form-field>
+            <input matInput placeholder="First name">
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput placeholder="Age">
+          </mat-form-field>
+        </mat-expansion-panel>
+
+
+
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">apps</mat-icon>
+        <span>Apps</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+        <span class="menu-badge mat-red">5</span>
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/apps/calendar">Calendar</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/apps/media">Media</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/apps/messages">Messages</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/apps/social">Social</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/apps/chat">Chat</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/widgets">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">photo</mat-icon>
+        <span>Widgets</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+      </a>
+
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">equalizer</mat-icon>
+        <span>Material</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+        <span class="menu-badge mat-purple">10</span>
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/button">Button</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/cards">Cards</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/select">Select</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/autocomplete">Autocomplete</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/datepicker">Datepicker</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/expansion">Expansion</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/table">Table</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/chips">Chips</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/input">Input</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/checkbox">Checkbox</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/radio">Radio</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/toolbar">Toolbar</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/lists">Lists</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/grid">Grid</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/progress">Progress</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/tabs">Tabs</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/switch">Switch</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/tooltip">Tooltip</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/menu">Menu</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/slider">Slider</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/snackbar">Snackbar</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/material/dialog">Dialog</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+
+
+
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">looks_3</mat-icon>
+        <span>Forms</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/forms/editor">Editor</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/forms/validation">Validation</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/forms/upload">Upload</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/forms/tree">Tree</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+
+
+
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">format_line_spacing</mat-icon>
+        <span>Datatable</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+        <span class="menu-badge mat-blue-grey">8</span>
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/fullscreen">Fullscreen</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/editing">Editing</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/filter">Filter</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/paging">Paging</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/sorting">Sorting</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/pinning">Pinning</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/tables/selection">Selection</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">looks_3</mat-icon>
+        <span>Ecommerce</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+        <span class="menu-badge mat-red">new</span>
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/ecommerce/products">Products</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/ecommerce/compact">Compact</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/ecommerce/detail">Detail View</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/taskboard">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">view_column</mat-icon>
+        <span>Taskboard</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+      </a>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/charts">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">show_chart</mat-icon>
+        <span>Charts</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+      </a>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">navigation</mat-icon>
+        <span>Maps</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/maps/google">Google</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/maps/leaflet">Leaflet</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" style="display: flex; box-sizing: border-box; flex-direction: row;" href="/dragndrop">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">show_chart</mat-icon>
+        <span>Drag and Drop</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+      </a>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">pages</mat-icon>
+        <span>Pages</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/pages/invoice">Invoice</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/pages/timeline">Timeline</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/pages/user">User</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/pages/blank">Blank</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/pages/pricing">Pricing</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">face</mat-icon>
+        <span>Session</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/404">404</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/error">Error</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/signin">Signin</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/signup">Signup</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/forgot">Forgot</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/session/lockscreen">Lockscreen</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+
+
+      <a appaccordiontoggle="" class="relative" target="_blank" style="display: flex; box-sizing: border-box; flex-direction: row;"
+        href="http://primer.nyasha.me/docs">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">local_library</mat-icon>
+        <span>Docs</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+
+      </a>
+
+
+    </div>
+  </mat-list-item>
+  <mat-list-item appaccordionlink="" class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a appaccordiontoggle="" class="relative" href="javascript:;" style="display: flex; box-sizing: border-box; flex-direction: row;">
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">trending_flat</mat-icon>
+        <span>Menu</span>
+        <span fxflex="" style="flex: 1 1 1e-09px; box-sizing: border-box;"></span>
+
+        <mat-icon class="menu-caret mat-icon material-icons" role="img" aria-hidden="true">arrow_drop_down</mat-icon>
+      </a>
+      <mat-nav-list class="sub-menu mat-nav-list" role="list">
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/menu/menu">Menu</a>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item" role="listitem" routerlinkactive="open">
+          <div class="mat-list-item-content">
+            <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+            <div class="mat-list-text"></div>
+            <a class="relative" href="/menu/timeline">Menu</a>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-list-item>
+  <mat-divider aria-orientation="horizontal" class="mat-divider" role="separator"></mat-divider>
+  <mat-list-item class="mat-list-item" role="listitem">
+    <div class="mat-list-item-content">
+      <div class="mat-list-item-ripple mat-ripple" mat-ripple=""></div>
+      <div class="mat-list-text"></div>
+      <a>
+        <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">add</mat-icon>
+        <span>Add</span>
+      </a>
+    </div>
+  </mat-list-item>
+</mat-nav-list>

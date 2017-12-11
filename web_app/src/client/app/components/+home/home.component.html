@@ -1,0 +1,95 @@
+<div class="container" fxLayout="column" [@routeAnimation]>
+
+    <div hide>
+        <div class="all-scene-wrapper">
+            <div id="dbgmess"></div>
+            <div class="slow aobject1"></div>
+        </div>
+        <div class="scene-wrapper scene1">
+            <div class="slow box object1"></div>
+            <div class="slow box object2"></div>
+            <div class="fast object3">Loading...</div>
+        </div>
+        <div class="scene-wrapper scene2">
+            <div class="slow box object1"></div>
+            <div class="slow box object2"></div>
+        </div>
+        <div class="scene-wrapper scene3">
+            <div class="slow box object1"></div>
+            <div class="slow box object2"></div>
+        </div>
+        <div class="scene-wrapper scene4">
+            <div class="slow object1">HELLO</div>
+        </div>
+        <div class="scene-wrapper scene5">
+            <div class="box slow object1"></div>
+        </div>
+        <div class="scene-wrapper scene6">
+            <div class="slow box object1"></div>
+        </div>
+        <div class="scene-wrapper scene7">
+            <div class="z1 abox plx_scroll object1" data-z=1>1</div>
+            <div class="z3 abox plx_scroll fast object2" data-z=3>3</div>
+            <div class="z5 abox plx_scroll fast object3" data-z=5>5</div>
+            <div class="z7 abox plx_scroll fast object4" data-z=7>7</div>
+        </div>
+        <div class="scene-wrapper scene8">
+            <div class="z1 abox plx_mouse object1" data-z=1>1</div>
+            <div class="z2 arialp"></div>
+            <div class="z3 abox plx_mouse  object2" data-z=3>3</div>
+            <div class="z4 arialp"></div>
+            <div class="z5 abox plx_mouse  object3" data-z=5>5</div>
+            <div class="z6 arialp"></div>
+            <div class="z7 abox plx_mouse  object4" data-z=7>scene 8 L7</div>
+        </div>
+        <div class="scene-wrapper scene9"></div>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center">
+        <mat-card style="width:100%">
+            <mat-card-header>
+                <mat-card-title>{{ 'PUBLIC.HOME.CARD_TITLE' | translate }}</mat-card-title>
+                <mat-card-subtitle>{{ 'PUBLIC.HOME.CARD_SUBTITLE' | translate }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-grid-list cols="4" rowHeight="2:3">
+                    <mat-grid-tile>
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                    <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon></button>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>Gourmet Sweet Potato Classic</mat-card-title>
+                                <mat-card-subtitle>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_half</i>
+                                        <i class="material-icons">star_border</i>
+
+                                </mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1074500_11.jpg" alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                        "This recipe has been in my family for years. It's easy to cook, but tastes like it took hours to make! I usually make enough extra sauce to pour over mashed potatoes. YUM!"
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                    <button mat-icon-button color="warn"><mat-icon aria-label="Example icon-button with a heart icon">thumb_up</mat-icon></button>                                    
+                                    <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">share</mat-icon></button>
+                                    <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">collections_bookmark</mat-icon></button>
+                                    <button mat-icon-button><mat-icon aria-label="Example icon-button with a heart icon">rate_review</mat-icon></button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+
+
+
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+@import '../../../assets/sass/variables.scss';
+@import '../../../assets/sass/mixins.scss';
+
+mat-toolbar {
+    &.main-header {
+        padding: 0 8px;        
+        box-shadow: 0 1px 8px $black_30;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        .branding {
+            display: flex;
+            @extend %truncated;
+            margin: auto 0;
+            line-height: 50px;
+            padding: 0 64px 0 16px;
+        }
+        .logo {
+            display: inline;
+            background-image: $svg_logo;
+            @include size(100px,25px);
+            background-size: 109px 25px;
+            margin: auto;
+        }
+        .search-bar .search-form {
+            background: none;
+            position: relative; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            @include border-radius(2px);
+            margin-right: 1rem;
+            display: block;
+            max-width: 20rem;
+            input {
+                font-size: 0.6rem;
+                border-bottom:1px solid $black;
+                padding: .60rem .75rem;
+                z-index: 2;
+                cursor: text;
+                text-indent: 30px;
+                background: transparent;
+                width: 100%;
+                outline: 0;
+            }
+            .material-icons {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                margin-top: -12px;
+                color: transparentize($black, 0.13);
+            }
+        }        
+    }
+}
+
+[dir=rtl] {
+    .main-header {
+        .branding {
+            padding: 0 16px 0 64px;
+        }
+        .search-bar .search-form .material-icons {
+            left: auto;
+            right: 10px;
+        }
+    }
+}
+
+@media(max-width:600px) and(orientation:portrait) {
+    mat-toolbar.main-header {
+        .branding {
+            padding: 0 16px;
+        }
+        .logo {
+            width: 87px;
+            height: 20px;
+            background-size: 87px 20px;
+        }
+    }
+}
+
+#app-inner{
+   
+    left: 0;
+    right: 0;
+}

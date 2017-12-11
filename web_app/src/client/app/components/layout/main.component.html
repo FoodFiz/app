@@ -1,0 +1,69 @@
+﻿<div fxLayout="column" fxFlex class="app">
+    <mat-toolbar class="main-header" color="primary">
+        <button mat-icon-button (click)="categories.toggle()">
+            <mat-icon>restaurant_menu</mat-icon>
+        </button>
+        <div class="branding">
+            <span class="title">{{ title | translate }}</span>
+            <div class="logo"></div>
+        </div>
+        <div class="search-bar" style="flex: 1 1 1e-09px; box-sizing: border-box;">
+            <form class="search-form" fxshow="false" fxshow.gt-xs="" novalidate="" style="display: block;">
+                <mat-icon>search</mat-icon>
+                <input autofocus="true" placeholder="Search" type="text">
+            </form>
+        </div>
+
+        <button mat-icon-button apptogglefullscreen="">
+            <mat-icon>fullscreen</mat-icon>
+        </button>
+
+        <button mat-icon-button class="overflow-visible" *ngIf="isAuthenticated">
+            <mat-icon>notifications</mat-icon>
+            <span class="notification-label">5</span>
+        </button>
+
+        <button mat-icon-button [routerLink]="['/', 'login']" matTooltip="Sign In!">
+            <mat-icon>person</mat-icon>
+        </button>
+
+        <button *ngIf="isAuthenticated" mat-icon-button (click)="logout()">
+            <mat-icon>lock_outline</mat-icon>
+        </button>
+
+        <button mat-icon-button [matMenuTriggerFor]="i18nMenu">
+            <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #i18nMenu="matMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+            <button mat-menu-item [routerLink]="['/', 'change-language', 'en']">
+                {{ 'PUBLIC.MENU.ENGLISH' | translate }}
+            </button>
+            <button mat-menu-item [routerLink]="['/', 'change-language', 'tr']">
+                {{ 'PUBLIC.MENU.TURKISH' | translate }}
+            </button>
+        </mat-menu>
+        <button mat-icon-button (click)="rightMenu.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-sidenav-container id="app-inner">
+        <mat-sidenav #rightMenu opened="false" mode="side" position="end" id="rightMenu-panel" tabindex="-1">
+            <app-sidenav></app-sidenav>
+        </mat-sidenav>
+
+        <mat-sidenav #categories opened="true" mode="over" id="categories-panel" tabindex="-1" [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0" color="primary" >
+            <button mat-icon-button (click)="categories.toggle()" class="sidenavClose">
+                <mat-icon>close</mat-icon>
+            </button>
+            <app-categories></app-categories>
+        </mat-sidenav>
+
+        <mat-sidenav-content *ngIf="isBrowser" #scrollContainer [perfect-scrollbar]>
+            <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <app-subscribe></app-subscribe>
+    <app-footer></app-footer>
+</div>

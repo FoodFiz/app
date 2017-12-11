@@ -1,0 +1,335 @@
+@import '../../../assets/sass/variables.scss';
+
+mat-sidenav.rightMenu-panel {
+    overflow-x: hidden;
+    width: 15rem; //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    >nav {
+        min-width: 15rem;
+    }
+    .mat-list-item {
+        background-color: transparent; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: background-color .3s cubic-bezier(.35, 0, .25, 1);
+        .mat-list-item-content {
+            display: block;
+            height: auto;
+            max-height: 48px;
+            overflow: hidden;
+            padding: 0; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: max-height .3s cubic-bezier(.35, 0, .25, 1);
+        }
+        &.open>.mat-list-item-content {
+            max-height: 2000px;
+            background: $black_4;
+        }
+    }
+    .sub-menu {
+        padding-top: 0;
+        overflow: hidden; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: .5s cubic-bezier(.35, 0, .25, 1); //Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+        transition-property: max-height;
+        max-height: 0;
+        a {
+            padding-left: 64px;
+        }
+        .sub-menu {
+            a {
+                padding-left: 80px;
+            }
+            .sub-menu {
+                a {
+                    padding-left: 96px;
+                }
+                .sub-menu a {
+                    padding-left: 112px;
+                }
+            }
+        }
+    }
+    .navigation {
+        .menu-caret {
+            display: inline-block; //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: transform .3s cubic-bezier(.7, 0, .3, 1);
+            float: right;
+            margin-left: .3125rem;
+            text-align: center;
+        }
+        .menu-badge {
+            display: inline-block;
+            height: 16px;
+            min-width: 10px;
+            line-height: 18px;
+            text-align: center; //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 0 4px;
+        }
+        mat-icon:not(.menu-caret) {
+            margin-right: 24px;
+        }
+        .open>.mat-list-item-content {
+            >[appAccordionToggle]>.menu-caret {
+                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: rotate(-180deg);
+            }
+            >.sub-menu {
+                max-height: 2000px;
+            }
+        }
+    }
+    .mat-drawer-focus-trap>.cdk-focus-trap-content {
+        position: relative;
+    }
+    .mat-nav-list a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 48px;
+        padding: 0 16px;
+    }
+}
+
+[dir=rtl] {
+    mat-sidenav.rightMenu-panel {
+        .sub-menu {
+            a {
+                padding-right: 64px;
+                padding-left: 16px;
+            }
+            .sub-menu {
+                a {
+                    padding-right: 80px;
+                    padding-left: 16px;
+                }
+                .sub-menu {
+                    a {
+                        padding-right: 96px;
+                        padding-left: 16px;
+                    }
+                    .sub-menu a {
+                        padding-right: 112px;
+                        padding-left: 16px;
+                    }
+                }
+            }
+        }
+        .navigation {
+            .menu-caret {
+                float: left;
+                margin-right: .3125rem;
+                margin-left: 0;
+            }
+            mat-icon:not(.menu-caret) {
+                margin-left: 24px;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media(min-width:960px) {
+    .collapsed-sidebar {
+        .mat-drawer-backdrop {
+            display: none;
+        }
+        &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+            margin-left: 80px!important;
+        }
+        mat-sidenav.rightMenu-panel {
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: width .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1)!important;
+            &:not(:hover) {
+                width: 80px;
+                .sub-menu {
+                    display: none!important;
+                    visibility: hidden;
+                }
+                .mat-list-item>.mat-list-item-content>a {
+                    padding-right: 0;
+                    padding-left: 0;
+                    text-align: center;
+                    > {
+                        .menu-caret {
+                            display: none;
+                        }
+                        .material-icons {
+                            width: 80px!important;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                    >span {
+                        &.menu-badge {
+                            position: absolute;
+                            top: 10px;
+                            right: 16px;
+                        }
+                        &:not(.menu-badge) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .compact-sidebar {
+        &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+            margin-left: 100px!important;
+        }
+        mat-sidenav.rightMenu-panel {
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: width .4s cubic-bezier(.25, .8, .25, 1), transform .4s cubic-bezier(.25, .8, .25, 1)!important;
+            width: 100px;
+            overflow: visible!important;
+            .sub-menu {
+                display: none!important;
+                visibility: hidden;
+                background: $white; //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+                box-shadow: 0 2px 1px -1px $black_20, 0 1px 1px 0 $black_14, 0 1px 3px 0 $black_12;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                max-height: 300px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                a {
+                    padding-left: 16px;
+                    height: 36px;
+                }
+            }
+            .navigation>.mat-list-item {
+                position: relative;
+                >.mat-list-item-content {
+                    height: 60px;
+                    max-height: 60px;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: visible;
+                    >a {
+                        padding-right: 0;
+                        padding-left: 0;
+                        padding-top: 9px;
+                        padding-bottom: 9px;
+                        text-align: center; //Instead of the line below you could use @include box-sizing($bs)
+                        box-sizing: content-box!important;
+                        flex-direction: column!important;
+                        height: 42px;
+                        >span {
+                            &.menu-badge {
+                                position: absolute;
+                                top: 10px;
+                                right: 16px;
+                            }
+                            &:not(.menu-badge):not(.menu-caret) {
+                                font-size: 12px;
+                            }
+                        }
+                        >.material-icons {
+                            width: 100px!important;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+                &:hover>.mat-list-item-content>.sub-menu {
+                    display: block!important;
+                    visibility: visible;
+                }
+            }
+            .mat-list-item>.mat-list-item-content>a {
+                >[fxflex] {
+                    display: none;
+                }
+                >.menu-caret {
+                    display: none;
+                }
+            }
+        }
+    }
+    [dir=rtl] {
+        &.collapsed-sidebar {
+            &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+                margin-left: 0!important;
+                margin-right: 80px!important;
+            }
+            mat-sidenav.rightMenu-panel:not(:hover) .mat-list-item>.mat-list-item-content>a>span.menu-badge {
+                right: auto;
+                left: 16px;
+            }
+        }
+        .collapsed-sidebar {
+            &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+                margin-left: 0!important;
+                margin-right: 80px!important;
+            }
+            mat-sidenav.rightMenu-panel:not(:hover) .mat-list-item>.mat-list-item-content>a>span.menu-badge {
+                right: auto;
+                left: 16px;
+            }
+        }
+        &.compact-sidebar {
+            &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+                margin-left: auto!important;
+                margin-right: 100px!important;
+            }
+            mat-sidenav.rightMenu-panel {
+                .sub-menu {
+                    left: auto;
+                    right: 100%;
+                    a {
+                        padding-left: 16px;
+                        padding-right: 16px;
+                    }
+                }
+                .navigation>.mat-list-item>.mat-list-item-content>a>span.menu-badge {
+                    right: auto;
+                    left: 16px;
+                }
+            }
+        }
+        .compact-sidebar {
+            &.side-panel-opened mat-sidenav.rightMenu-panel~.mat-drawer-content {
+                margin-left: auto!important;
+                margin-right: 100px!important;
+            }
+            mat-sidenav.rightMenu-panel {
+                .sub-menu {
+                    left: auto;
+                    right: 100%;
+                    a {
+                        padding-left: 16px;
+                        padding-right: 16px;
+                    }
+                }
+                .navigation>.mat-list-item>.mat-list-item-content>a>span.menu-badge {
+                    right: auto;
+                    left: 16px;
+                }
+            }
+        }
+    }
+    .app-dark {
+        &.compact-sidebar mat-sidenav.rightMenu-panel .sub-menu {
+            background: $color_cape_cod_approx;
+        }
+        .compact-sidebar mat-sidenav.rightMenu-panel .sub-menu {
+            background: $color_cape_cod_approx;
+        }
+    }
+    .mat-drawer-content {
+        margin-left: 15rem;
+    }
+    .text-md-left {
+        text-align: left!important;
+    }
+    .text-md-right {
+        text-align: right!important;
+    }
+    .text-md-center {
+        text-align: center!important;
+    }
+    .side-panel-opened[dir=rtl] .mat-drawer-content {
+        margin-left: 0!important;
+        margin-right: 15rem!important;
+    }
+}

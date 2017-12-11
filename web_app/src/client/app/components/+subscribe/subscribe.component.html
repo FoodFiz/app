@@ -1,0 +1,9 @@
+﻿<mat-card>
+    <h1>Get Our Newsletter</h1>
+<h3>Get recipes, tips and NYT special offers delivered straight to your inbox. Opt out or contact us anytime.</h3>
+    <mat-form-field>
+        <input matInput placeholder="Enter your email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+</mat-card>

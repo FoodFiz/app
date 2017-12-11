@@ -1,0 +1,62 @@
+@function _unpack($shorthand) {
+    @if length($shorthand)==1 {
+        @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+    }
+    @else if length($shorthand)==2 {
+        @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+    }
+    @else if length($shorthand)==3 {
+        @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+    }
+    @else {
+        @return $shorthand;
+    }
+}
+
+@function _is-length($value) {
+    /* stylelint-disable-next-line */
+    @return type-of($value) !='null' and (str-slice($value + '', 1, 4)=='calc' or index(auto inherit initial 0, $value) or (type-of($value)=='number' and not(unitless($value))));
+}
+
+
+/* 
+ * Depth
+ */
+
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name))+1;
+    }
+    @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Colors
+ */
+
+ @function c($color, $value: base) {
+    @if map-has-key($ui-colors, $color) {
+        $color: map-get($ui-colors, $color);
+        $value: map-get($color, $value);
+        @return $value;
+    }
+    @else {
+        @warn 'There is no color "#{$color}" in this list; choose one of: #{$ui-colors}';
+    }
+}
+
+@function parseInt($n) {
+    /* 2 */
+    @return $n / ($n * 0 + 1);
+}
+
+@function map-deep-get($map, $keys...) {
+    $value: $map;
+    @each $key in $keys {
+        $value: map-get($value, $key);
+    }
+    @return $value;
+}
